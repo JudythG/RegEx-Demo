@@ -64,6 +64,24 @@ def classDemo():
     else:
         print ('why no Darcy or Fitzwilliam?')
 
+    # using the dot pattern (match all characters)
+    # Eric suggested the dot pattern at the end of my class discussion
+    # and it does make these matches easier
+    line3 = 'Jack Sparrow, and Jill Scott'
+    pattern = ('(.+),\s[a-zA-Z]+\s(.+)')
+    p = re.compile(pattern)
+    m = p.search (line3)
+    if m:
+       print (m.groups())
+
+    # testing with ', or ' rather than ', and ' as a separator
+    line4 = 'Mr. Fitzwilliam Darcy, or Colonel Fitzwilliam'
+    pattern = ('(.+),\s[a-zA-Z]+\s(.+)')
+    p = re.compile(pattern)
+    m = p.search (line4)
+    if m:
+       print (m.groups())
+
     # phone number (###) ###-####
     phone_pattern = '\(\d\d\d\) \d\d\d-\d\d\d\d'
     p = re.compile(phone_pattern)
